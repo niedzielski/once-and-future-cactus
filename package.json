@@ -1,0 +1,19 @@
+{
+  "name": "once-and-future-cactus",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rndmem/once-and-future-cactus",
+  "repository": "github:rndmem/once-and-future-cactus",
+  "bugs": "https://github.com/rndmem/once-and-future-cactus/issues",
+  "main": "src",
+  "engines": {
+    "node": "6.4.0"
+  },
+  "devDependencies": {
+    "eslint": "3.4.0",
+    "eslint-config-rndmem": "0.0.1",
+    "eslint-plugin-jsdoc": "2.3.1",
+    "eslint-plugin-node": "2.0.0",
+    "eslint-plugin-promise": "2.0.1"
+  },
+  "license": "GPL-3.0"
+}
