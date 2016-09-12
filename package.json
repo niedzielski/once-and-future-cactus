@@ -5,6 +5,14 @@
   "repository": "github:rndmem/once-and-future-cactus",
   "bugs": "https://github.com/rndmem/once-and-future-cactus/issues",
   "main": "src",
+  "scripts": {
+    "test": "npm run -s eslint",
+    "eslint": "eslint --cache --max-warnings 0 .",
+    "update": "ncu -atu",
+    "preversion": "npm run -s test",
+    "postversion": "git push origin master --follow-tags && npm publish",
+    "clean": "rm -rf node_modules .eslintcache"
+  },
   "engines": {
     "node": "6.4.0"
   },
