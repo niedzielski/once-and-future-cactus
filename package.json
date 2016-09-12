@@ -14,7 +14,7 @@
     "clean": "rm -rf node_modules .eslintcache"
   },
   "engines": {
-    "node": "6.4.0"
+    "node": "6.5.0"
   },
   "devDependencies": {
     "eslint": "3.4.0",
