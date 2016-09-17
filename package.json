@@ -9,6 +9,7 @@
     "test": "npm run -s eslint",
     "eslint": "rndlint .",
     "dist": "mkdir -p dist && cp -f src/index-prod.htm dist/index.htm && jspm bundle-sfx --minify src/index dist/index.js",
+    "rel": "rm -rf dist && npm run -s dist && mv dist \"rel/$(jq -r .version package.json)+$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)\"",
     "update": "ncu -atu && jspm update",
     "postinstall": "jspm i",
     "preversion": "npm run -s test",
