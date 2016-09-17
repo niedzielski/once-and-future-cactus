@@ -8,6 +8,7 @@
   "scripts": {
     "test": "npm run -s eslint",
     "eslint": "rndlint .",
+    "dist": "mkdir -p dist && cp -f src/index-prod.htm dist/index.htm && jspm bundle-sfx --minify src/index dist/index.js",
     "update": "ncu -atu && jspm update",
     "postinstall": "jspm i",
     "preversion": "npm run -s test",
@@ -31,7 +32,7 @@
   },
   "jspm": {
     "directories": {
-      "baseURL": "src",
+      "baseURL": ".",
       "packages": "jspm_packages"
     },
     "configFile": "config.js",
