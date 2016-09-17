@@ -1,4 +1,4 @@
-import Phaser from './phaser.js' // eslint-disable-line no-unused-vars
+import Phaser from './Phaser.js' // eslint-disable-line no-unused-vars
 
 class Game {
   /** @return {void} */

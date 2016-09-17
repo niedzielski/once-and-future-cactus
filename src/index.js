@@ -1,2 +1,2 @@
-import game from './game'
+import game from './Game'
 game.init()
