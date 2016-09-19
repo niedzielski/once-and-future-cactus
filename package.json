@@ -32,11 +32,6 @@
     "pre-commit": "1.1.3"
   },
   "jspm": {
-    "directories": {
-      "baseURL": ".",
-      "packages": "jspm_packages"
-    },
-    "configFile": "config.js",
     "dependencies": {
       "phaser": "npm:phaser@2.6.2"
     },
