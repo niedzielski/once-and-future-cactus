@@ -1,8 +1,15 @@
-import Phaser from './Phaser.js' // eslint-disable-line no-unused-vars
+import GameState from './GameState'
+import Phaser from './Phaser'
+import Scene from './Scene'
 
-export default class Game {
+export default class Game extends Phaser.Game {
+  constructor() {
+    super({width: '100%', height: '100%', transparent: false, antialias: false})
+    this._gameState = new GameState(this, new Scene())
+  }
+
   /** @return {void} */
-  init() { // eslint-disable-line class-methods-use-this
-    console.log('hello world!') // eslint-disable-line no-console
+  init() {
+    this.state.add('GameState', this._gameState, true)
   }
 }
