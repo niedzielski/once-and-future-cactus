@@ -13,20 +13,16 @@ export default class GameState extends Phaser.State {
       @return {void} */
   preload(game) {
     super.preload(game)
+    this._scene.preload(game)
 
     // don't antialias canvas primitives
     Phaser.Canvas.setImageRenderingCrisp(game.canvas)
-
-    game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
-    this._scaleWorldToSceneHeight()
 
     // avoid infinite resize loop
     // https://github.com/photonstorm/phaser/issues/2663
     window.addEventListener('resize', () => this.onWindowResize())
 
-    this._resizeCameraBounds()
-
-    this._scene.preload(game)
+    this.onWindowResize()
   }
 
   /** @arg {Phaser.Game} game
