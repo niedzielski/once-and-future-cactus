@@ -13,6 +13,7 @@ export default class GameState extends Phaser.State {
       @return {void} */
   preload(game) {
     super.preload(game)
+    game.time.advancedTiming = true
     this._scene.preload(game)
 
     // don't antialias canvas primitives
@@ -37,6 +38,14 @@ export default class GameState extends Phaser.State {
   update(game) {
     super.update(game)
     this._scene.update(game)
+  }
+
+  /** @param {Phaser.Game} game
+      @return {void} */
+  render(game) {
+    super.render(game)
+    const x = 0, y = 15
+    game.debug.text(game.time.fps, x, y, '#00ff00')
   }
 
   /** @return {void} */
