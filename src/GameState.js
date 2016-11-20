@@ -1,5 +1,3 @@
-import Phaser from './Phaser'
-
 export default class GameState extends Phaser.State {
   /** @arg {Phaser.Game} game
       @arg {Scene} scene */

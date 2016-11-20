@@ -8,12 +8,13 @@
         padding: 0;
       }
     </style>
+    <script src='/jspm_packages/system.js'></script>
+    <script src='/jspm.config.js'></script>
+    <script src='/node_modules/phaser/build/phaser.js'></script>
   </head>
 
   <body>
-    <script src='/jspm_packages/system.js'></script>
-    <script src='/config.js'></script>
-    <script>System.import('src/index')</script>
+    <script>SystemJS.import('/src/index.js')</script>
   </body>
 
 </html>
