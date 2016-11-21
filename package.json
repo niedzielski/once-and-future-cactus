@@ -17,7 +17,7 @@
     "clean": "rm -rf node_modules jspm_packages .eslintcache"
   },
   "engines": {
-    "node": "6.5.0"
+    "node": "7.1.0"
   },
   "dependencies": {
     "phaser": "github:photonstorm/phaser#7a155f6"
