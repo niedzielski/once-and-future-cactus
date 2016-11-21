@@ -17,16 +17,14 @@ export default class GameState extends Phaser.State {
   preload(game) {
     super.preload(game)
     game.time.advancedTiming = true
+
     this._scene.preload(game)
 
-    // don't antialias canvas primitives
-    Phaser.Canvas.setImageRenderingCrisp(game.canvas)
+    this.resize()
 
     // avoid infinite resize loop
     // https://github.com/photonstorm/phaser/issues/2663
-    window.addEventListener('resize', () => this.onWindowResize())
-
-    this.onWindowResize()
+    window.addEventListener('resize', () => this.resize())
   }
 
   /** @param {!Phaser.Game} game
@@ -34,6 +32,9 @@ export default class GameState extends Phaser.State {
   create(game) {
     super.create(game)
     this._scene.create(game)
+
+    // eslint-disable-next-line no-console
+    console.log(`scene: ${this._scene.width()}x${this._scene.height()}`)
   }
 
   /** @param {!Phaser.Game} game
@@ -48,24 +49,21 @@ export default class GameState extends Phaser.State {
   render(game) {
     super.render(game)
     const x = 0, y = 15
-    game.debug.text(game.time.fps, x, y, '#00ff00')
+    game.debug.text(game.time.fps, x, y, '#0f0')
   }
 
   /** @return {void} */
-  onWindowResize() {
-    console.log('onWindowResize') // eslint-disable-line no-console
-    this._scaleWorldToSceneHeight()
+  resize() {
+    console.log('resize') // eslint-disable-line no-console
+    this._scaleCameraToSceneHeight()
     this._game.scale.setGameSize(window.innerWidth, window.innerHeight)
     this._resizeCameraBounds()
   }
 
   /** @return {void} */
-  _scaleWorldToSceneHeight() {
+  _scaleCameraToSceneHeight() {
     const scale = window.innerHeight / this._scene.height()
-
-    // there is no camera zoom
-    // http://www.html5gamedevs.com/topic/7150-how-to-zoom-out-from-center-of-gameworld/
-    this._game.world.scale.set(scale)
+    this._game.camera.scale.set(scale, scale)
   }
 
   /** @return {void} */
