@@ -1,6 +1,13 @@
 {
   "name": "once-and-future-cactus",
   "version": "0.1.2",
+  "description": "Once and Future Cactus",
+  "keywords": [
+    "game",
+    "pixel",
+    "8-bit",
+    "phaser"
+  ],
   "homepage": "https://github.com/rndmem/once-and-future-cactus",
   "repository": "github:rndmem/once-and-future-cactus",
   "bugs": "https://github.com/rndmem/once-and-future-cactus/issues",
