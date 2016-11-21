@@ -17,8 +17,8 @@ export default class Scene {
   /** @arg {Phaser.Game} game
       @return {void} */
   preload(game) { // eslint-disable-line class-methods-use-this
-    game.load.image('bg', 'bg.png')
-    game.load.image('player', 'player.png')
+    game.load.image('bg', '/asset/bg.png')
+    game.load.image('player', '/asset/player.png')
   }
 
   /** @arg {Phaser.Game} game
