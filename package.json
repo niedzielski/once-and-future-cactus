@@ -12,7 +12,7 @@
     "rel": "rm -rf dist && npm run -s dist && mv dist \"rel/$(jq -r .version package.json)+$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)\"",
     "update": "ncu -atu && jspm update",
     "postinstall": "jspm i",
-    "preversion": "npm run -s test",
+    "preversion": "[[ -z \"$(git status --porcelain)\" ]] && npm run -s test",
     "postversion": "git push origin master --follow-tags && npm publish",
     "clean": "rm -rf node_modules jspm_packages .eslintcache"
   },
