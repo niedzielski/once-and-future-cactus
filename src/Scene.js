@@ -21,6 +21,7 @@ export default class Scene {
   /** @param {!Phaser.Game} game
       @return {void} */
   preload(game) { // eslint-disable-line class-methods-use-this
+    game.stage.backgroundColor = '#0f0'
     game.load.image('bg', '/asset/bg.png')
     game.load.image('player', '/asset/player.png')
   }
@@ -61,5 +62,13 @@ export default class Scene {
     if (kbd.isDown(Phaser.Keyboard.DOWN)) {
       velocity.y += increment
     }
+  }
+
+  /** @param {!Phaser.Game} game
+      @return {void} */
+  render(game) {
+    const x = 32, y = 32
+    game.debug.bodyInfo(this._player, x, y)
+    game.debug.body(this._player)
   }
 }

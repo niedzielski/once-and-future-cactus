@@ -50,6 +50,7 @@ export default class GameState extends Phaser.State {
     super.render(game)
     const x = 0, y = 15
     game.debug.text(game.time.fps, x, y, '#0f0')
+    this._scene.render(game)
   }
 
   /** @return {void} */
