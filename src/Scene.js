@@ -16,14 +16,14 @@ export default class Scene {
     return this._width
   }
 
-  /** @arg {Phaser.Game} game
+  /** @param {Phaser.Game} game
       @return {void} */
   preload(game) { // eslint-disable-line class-methods-use-this
     game.load.image('bg', '/asset/bg.png')
     game.load.image('player', '/asset/player.png')
   }
 
-  /** @arg {Phaser.Game} game
+  /** @param {Phaser.Game} game
       @return {void} */
   create(game) {
     this._bg = game.add.sprite(0, 0, 'bg')
@@ -33,7 +33,7 @@ export default class Scene {
     game.camera.follow(this._player)
   }
 
-  /** @arg {Phaser.Game} game
+  /** @param {Phaser.Game} game
       @return {void} */
   update(game) {
     this._player.body.velocity.x = 0

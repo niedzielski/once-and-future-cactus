@@ -1,15 +1,15 @@
 import Phaser from './Phaser'
 
 export default class GameState extends Phaser.State {
-  /** @arg {Phaser.Game} game
-      @arg {Scene} scene */
+  /** @param {Phaser.Game} game
+      @param {Scene} scene */
   constructor(game, scene) {
     super(game)
     this._game = game
     this._scene = scene
   }
 
-  /** @arg {Phaser.Game} game
+  /** @param {Phaser.Game} game
       @return {void} */
   preload(game) {
     super.preload(game)
@@ -26,14 +26,14 @@ export default class GameState extends Phaser.State {
     this.onWindowResize()
   }
 
-  /** @arg {Phaser.Game} game
+  /** @param {Phaser.Game} game
       @return {void} */
   create(game) {
     super.create(game)
     this._scene.create(game)
   }
 
-  /** @arg {Phaser.Game} game
+  /** @param {Phaser.Game} game
       @return {void} */
   update(game) {
     super.update(game)
