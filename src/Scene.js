@@ -1,7 +1,7 @@
 import Phaser from './Phaser'
 
-/** @private {!number} _width
-    @private {!number} _height */
+/** @private {!number} _width px
+    @private {!number} _height px */
 export default class Scene {
   constructor() {
     this._width = 128
@@ -35,17 +35,31 @@ export default class Scene {
     const lerp = .1
     game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER, lerp,
       lerp)
+
+    const maxVelocityPxPerSec = 50
+    this._player.body.maxVelocity.set(maxVelocityPxPerSec)
+    const dragPxPerSec = 300
+    this._player.body.drag.set(dragPxPerSec)
   }
 
   /** @param {!Phaser.Game} game
       @return {void} */
   update(game) {
-    this._player.body.velocity.x = 0
-    if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-      this._player.body.velocity.x -= 75
+    const
+      kbd = game.input.keyboard,
+      velocity = this._player.body.velocity,
+      increment = 10
+    if (kbd.isDown(Phaser.Keyboard.LEFT)) {
+      velocity.x -= increment
     }
-    if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-      this._player.body.velocity.x += 75
+    if (kbd.isDown(Phaser.Keyboard.RIGHT)) {
+      velocity.x += increment
+    }
+    if (kbd.isDown(Phaser.Keyboard.UP)) {
+      velocity.y -= increment
+    }
+    if (kbd.isDown(Phaser.Keyboard.DOWN)) {
+      velocity.y += increment
     }
   }
 }
