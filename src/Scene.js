@@ -1,3 +1,4 @@
+import Kbd from './Kbd'
 
 /** @private {!number} _width px
     @private {!number} _height px */
@@ -5,6 +6,7 @@ export default class Scene {
   constructor() {
     this._width = 128
     this._height = 32
+    this._kbd = new Kbd()
   }
 
   /** @return {!number} */
@@ -46,20 +48,19 @@ export default class Scene {
       @return {void} */
   update(game) {
     const
-      kbd = game.input.keyboard,
       velocity = this._player.body.velocity,
       increment = 10
-    if (kbd.isDown(Phaser.Keyboard.LEFT)) {
-      velocity.x -= increment
-    }
-    if (kbd.isDown(Phaser.Keyboard.RIGHT)) {
-      velocity.x += increment
-    }
-    if (kbd.isDown(Phaser.Keyboard.UP)) {
+    if (this._kbd.up(game)) {
       velocity.y -= increment
     }
-    if (kbd.isDown(Phaser.Keyboard.DOWN)) {
+    if (this._kbd.right(game)) {
+      velocity.x += increment
+    }
+    if (this._kbd.down(game)) {
       velocity.y += increment
+    }
+    if (this._kbd.left(game)) {
+      velocity.x -= increment
     }
   }
 
