@@ -1,4 +1,5 @@
 import GameState from './GameState'
+import Phaser from './Phaser'
 import Scene from './Scene'
 
 export default class Game extends Phaser.Game {

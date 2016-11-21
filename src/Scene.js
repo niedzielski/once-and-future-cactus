@@ -1,3 +1,5 @@
+import Phaser from './Phaser'
+
 export default class Scene {
   constructor() {
     this._width = 128
