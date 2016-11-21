@@ -1,4 +1,3 @@
-import Phaser from './Phaser'
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
 /** @private {!Phaser.Game} _game

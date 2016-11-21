@@ -1,5 +1,4 @@
 import GameState from './GameState'
-import Phaser from './Phaser'
 import Scene from './Scene'
 
 /** @private {!Phaser.State} _gameState */

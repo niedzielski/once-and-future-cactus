@@ -1,4 +1,3 @@
-import Phaser from './Phaser'
 
 /** @private {!number} _width px
     @private {!number} _height px */

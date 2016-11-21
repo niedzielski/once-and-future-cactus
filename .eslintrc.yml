@@ -1,1 +1,3 @@
 extends: rndmem
+globals:
+  Phaser: true
