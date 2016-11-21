@@ -32,7 +32,9 @@ export default class Scene {
     this._player = game.add.sprite(this.width() / 2, this.height() / 2,
       'player')
     game.physics.arcade.enable(this._player)
-    game.camera.follow(this._player)
+    const lerp = .1
+    game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER, lerp,
+      lerp)
   }
 
   /** @param {!Phaser.Game} game
