@@ -1,5 +1,7 @@
 import Phaser from './Phaser'
 
+/** @private {!number} _width
+    @private {!number} _height */
 export default class Scene {
   constructor() {
     this._width = 128

@@ -1,6 +1,8 @@
 import Phaser from './Phaser'
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
+/** @private {!Phaser.Game} _game
+    @private {!Scene} _scene */
 export default class GameState extends Phaser.State {
   /** @param {!Phaser.Game} game
       @param {!Scene} scene */

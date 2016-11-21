@@ -2,6 +2,7 @@ import GameState from './GameState'
 import Phaser from './Phaser'
 import Scene from './Scene'
 
+/** @private {!Phaser.State} _gameState */
 export default class Game extends Phaser.Game {
   constructor() {
     // todo: use Phaser.AUTO (remove explicit renderer) when dev bugs are fixed
