@@ -29,6 +29,7 @@
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-node": "3.0.4",
     "eslint-plugin-promise": "3.4.0",
+    "jq-cli-wrapper": "0.4.0",
     "jspm": "0.17.0-beta.32",
     "live-server": "1.1.0",
     "npm-check-updates": "2.8.6",
