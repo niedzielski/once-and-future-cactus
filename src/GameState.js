@@ -2,15 +2,15 @@ import Phaser from './Phaser'
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
 export default class GameState extends Phaser.State {
-  /** @param {Phaser.Game} game
-      @param {Scene} scene */
+  /** @param {!Phaser.Game} game
+      @param {!Scene} scene */
   constructor(game, scene) {
     super(game)
     this._game = game
     this._scene = scene
   }
 
-  /** @param {Phaser.Game} game
+  /** @param {!Phaser.Game} game
       @return {void} */
   preload(game) {
     super.preload(game)
@@ -27,21 +27,21 @@ export default class GameState extends Phaser.State {
     this.onWindowResize()
   }
 
-  /** @param {Phaser.Game} game
+  /** @param {!Phaser.Game} game
       @return {void} */
   create(game) {
     super.create(game)
     this._scene.create(game)
   }
 
-  /** @param {Phaser.Game} game
+  /** @param {!Phaser.Game} game
       @return {void} */
   update(game) {
     super.update(game)
     this._scene.update(game)
   }
 
-  /** @param {Phaser.Game} game
+  /** @param {!Phaser.Game} game
       @return {void} */
   render(game) {
     super.render(game)
@@ -66,6 +66,7 @@ export default class GameState extends Phaser.State {
     this._game.world.scale.set(scale)
   }
 
+  /** @return {void} */
   _resizeCameraBounds() {
     this._game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
       this._scene.height())
