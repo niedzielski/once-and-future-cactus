@@ -33,6 +33,8 @@ export default class Scene {
     this._bg = game.add.sprite(0, 0, 'bg')
     this._player = game.add.sprite(this.width() / 2, this.height() / 2,
       'player')
+    const center = .5
+    this._player.anchor.setTo(center, 0)
     game.physics.arcade.enable(this._player)
     const lerp = .1
     game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER, lerp,
