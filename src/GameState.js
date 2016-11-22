@@ -16,6 +16,9 @@ export default class GameState extends Phaser.State {
   preload(game) {
     super.preload(game)
 
+    game.renderer.renderSession.roundPixels = true
+    game.camera.roundPx = false // this should be true but creates jitter
+
     game.canvas.style.display = 'none'
     this._canvas = Phaser.Canvas.create()
     Phaser.Canvas.addToDOM(this._canvas)

@@ -36,9 +36,7 @@ export default class Scene {
     const center = .5
     this._player.anchor.setTo(center, 0)
     game.physics.arcade.enable(this._player)
-    const lerp = .1
-    game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER, lerp,
-      lerp)
+    game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER)
 
     const maxVelocityPxPerSec = 50
     this._player.body.maxVelocity.set(maxVelocityPxPerSec)
