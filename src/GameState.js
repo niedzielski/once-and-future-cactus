@@ -1,26 +1,28 @@
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
-/** @private {!Scene} _scene */
+/** @private {!Scene} _scene
+    @private {?HTMLCanvasElement} _canvas front canvas */
 export default class GameState extends Phaser.State {
   /** @param {!Phaser.Game} game
       @param {!Scene} scene */
   constructor(game, scene) {
     super(game)
     this._scene = scene
+    this._canvas = null
   }
 
   /** @param {!Phaser.Game} game
       @return {void} */
   preload(game) {
     super.preload(game)
-    game.time.advancedTiming = true
+
+    game.canvas.style.display = 'none'
+    this._canvas = Phaser.Canvas.create()
+    Phaser.Canvas.addToDOM(this._canvas)
 
     this._scene.preload(game)
 
     this.resize()
-
-    // avoid infinite resize loop
-    // https://github.com/photonstorm/phaser/issues/2663
     window.addEventListener('resize', () => this.resize())
   }
 
@@ -45,28 +47,25 @@ export default class GameState extends Phaser.State {
       @return {void} */
   render(game) {
     super.render(game)
-    const x = 0, y = 15
-    game.debug.text(game.time.fps, x, y, '#0f0')
     this._scene.render(game)
+
+    this._canvas.getContext('2d').drawImage(game.canvas, 0, 0, game.width,
+      game.height, 0, 0, window.innerWidth, window.innerHeight)
   }
 
   /** @return {void} */
   resize() {
-    console.log('resize') // eslint-disable-line no-console
-    this._scaleCameraToSceneHeight()
-    this.game.scale.setGameSize(window.innerWidth, window.innerHeight)
-    this._resizeCameraBounds()
-  }
-
-  /** @return {void} */
-  _scaleCameraToSceneHeight() {
     const scale = window.innerHeight / this._scene.height()
-    this.game.camera.scale.set(scale, scale)
-  }
+    console.log(`resize scale=${scale}`) // eslint-disable-line no-console
 
-  /** @return {void} */
-  _resizeCameraBounds() {
+    this.game.scale.setGameSize(Math.ceil(window.innerWidth / scale),
+      Math.ceil(this._scene.height()))
     this.game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
       this._scene.height())
+
+    this._canvas.width = window.innerWidth
+    this._canvas.height = window.innerHeight
+
+    Phaser.Canvas.setSmoothingEnabled(this._canvas.getContext('2d'), false)
   }
 }

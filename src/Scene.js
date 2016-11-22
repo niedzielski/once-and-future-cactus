@@ -69,8 +69,6 @@ export default class Scene {
   /** @param {!Phaser.Game} game
       @return {void} */
   render(game) {
-    const x = 32, y = 32
-    game.debug.bodyInfo(this._player, x, y)
     game.debug.body(this._player)
   }
 }
