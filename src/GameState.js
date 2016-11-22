@@ -1,13 +1,11 @@
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
-/** @private {!Phaser.Game} _game
-    @private {!Scene} _scene */
+/** @private {!Scene} _scene */
 export default class GameState extends Phaser.State {
   /** @param {!Phaser.Game} game
       @param {!Scene} scene */
   constructor(game, scene) {
     super(game)
-    this._game = game
     this._scene = scene
   }
 
@@ -56,19 +54,19 @@ export default class GameState extends Phaser.State {
   resize() {
     console.log('resize') // eslint-disable-line no-console
     this._scaleCameraToSceneHeight()
-    this._game.scale.setGameSize(window.innerWidth, window.innerHeight)
+    this.game.scale.setGameSize(window.innerWidth, window.innerHeight)
     this._resizeCameraBounds()
   }
 
   /** @return {void} */
   _scaleCameraToSceneHeight() {
     const scale = window.innerHeight / this._scene.height()
-    this._game.camera.scale.set(scale, scale)
+    this.game.camera.scale.set(scale, scale)
   }
 
   /** @return {void} */
   _resizeCameraBounds() {
-    this._game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
+    this.game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
       this._scene.height())
   }
 }
