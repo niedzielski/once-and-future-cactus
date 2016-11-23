@@ -1,3 +1,4 @@
+/// <reference path="Phaser.d.ts" />
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
 /** @private {!Scene} _scene

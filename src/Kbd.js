@@ -1,3 +1,5 @@
+/// <reference path="Phaser.d.ts" />
+
 class Key {
   /** @param {!Array.<number>} keys */
   constructor(...keys) {

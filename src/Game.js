@@ -1,3 +1,4 @@
+/// <reference path="Phaser.d.ts" />
 import GameState from './GameState'
 import Scene from './Scene'
 

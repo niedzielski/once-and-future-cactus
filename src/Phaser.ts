@@ -1,1 +1,0 @@
-/// <reference path="../typings/globals/phaser/index.d.ts" />

@@ -1,3 +1,4 @@
+/// <reference path="Phaser.d.ts" />
 import Kbd from './Kbd'
 
 /** @private {!number} _width px
