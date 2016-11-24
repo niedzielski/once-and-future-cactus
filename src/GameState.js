@@ -19,6 +19,8 @@ export default class GameState extends Phaser.State {
     game.renderer.renderSession.roundPixels = true
     game.camera.roundPx = false // this should be true but creates jitter
 
+    Phaser.Canvas.setImageRenderingCrisp(game.canvas, false)
+
     this._scene.preload(game)
 
     this.resize()
