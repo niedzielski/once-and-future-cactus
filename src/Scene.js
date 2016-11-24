@@ -69,9 +69,7 @@ export default class Scene {
   /** @param {!Phaser.Game} game
       @return {void} */
   update(game) {
-    const
-      velocity = this._player.body.velocity,
-      increment = 10
+    const velocity = this._player.body.velocity, increment = 10
     if (this._kbd.up(game)) {
       velocity.y -= increment
     }
@@ -88,14 +86,14 @@ export default class Scene {
 
   /** @param {!Phaser.Game} game
       @return {void} */
-  resize(game) {
-    this._layers.forEach(layer => layer.resize(this.width(), this.height()))
-    game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER)
+  render(game) {
+    game.debug.body(this._player)
   }
 
   /** @param {!Phaser.Game} game
       @return {void} */
-  render(game) {
-    game.debug.body(this._player)
+  resize(game) {
+    this._layers.forEach(layer => layer.resize(this.width(), this.height()))
+    game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER)
   }
 }
