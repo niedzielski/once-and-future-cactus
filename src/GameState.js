@@ -14,6 +14,7 @@ export default class GameState extends Phaser.State {
       @return {void} */
   preload(game) {
     super.preload(game)
+    game.time.advancedTiming = true
 
     game.renderer.renderSession.roundPixels = true
     game.camera.roundPx = false // this should be true but creates jitter
@@ -47,6 +48,11 @@ export default class GameState extends Phaser.State {
   render(game) {
     super.render(game)
     this._scene.render(game)
+    const millisPerSec = 1000
+    const millisPerFrame = 17
+    if (game.time.now % millisPerSec < millisPerFrame) {
+      console.log(game.time.fps) // eslint-disable-line no-console
+    }
   }
 
   /** @return {void} */
