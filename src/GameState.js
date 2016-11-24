@@ -29,6 +29,7 @@ export default class GameState extends Phaser.State {
   create(game) {
     super.create(game)
     this._scene.create(game)
+    this.resize()
 
     // eslint-disable-next-line no-console
     console.log(`scene: ${this._scene.width()}x${this._scene.height()}`)
