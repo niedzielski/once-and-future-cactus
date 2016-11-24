@@ -12,15 +12,13 @@ export default class Scene {
   }
 
   /** @return {?number} */
-  width() { // eslint-disable-line class-methods-use-this
-    return 128 // eslint-disable-line no-magic-numbers
-    // todo: return this._map && this._map.widthInPixels
+  width() {
+    return this._map && this._map.widthInPixels
   }
 
   /** @return {?number} */
-  height() { // eslint-disable-line class-methods-use-this
-    return 32 // eslint-disable-line no-magic-numbers
-    // todo: return this._map && this._map.heightInPixels
+  height() {
+    return this._map && this._map.heightInPixels
   }
 
   /** @param {!Phaser.Game} game
@@ -88,9 +86,11 @@ export default class Scene {
     }
   }
 
-  /** @return {void} */
-  resize() {
+  /** @param {!Phaser.Game} game
+      @return {void} */
+  resize(game) {
     this._layers.forEach(layer => layer.resize(this.width(), this.height()))
+    game.camera.follow(this._player, Phaser.Camera.FOLLOW_PLATFORMER)
   }
 
   /** @param {!Phaser.Game} game
