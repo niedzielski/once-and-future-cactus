@@ -1,15 +1,13 @@
 /// <reference path="Phaser.d.ts" />
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
-/** @private {!Scene} _scene
-    @private {?HTMLCanvasElement} _canvas front canvas */
+/** @private {!Scene} _scene */
 export default class GameState extends Phaser.State {
   /** @param {!Phaser.Game} game
       @param {!Scene} scene */
   constructor(game, scene) {
     super(game)
     this._scene = scene
-    this._canvas = null
   }
 
   /** @param {!Phaser.Game} game
@@ -19,10 +17,6 @@ export default class GameState extends Phaser.State {
 
     game.renderer.renderSession.roundPixels = true
     game.camera.roundPx = false // this should be true but creates jitter
-
-    game.canvas.style.display = 'none'
-    this._canvas = Phaser.Canvas.create()
-    Phaser.Canvas.addToDOM(this._canvas)
 
     this._scene.preload(game)
 
@@ -52,9 +46,6 @@ export default class GameState extends Phaser.State {
   render(game) {
     super.render(game)
     this._scene.render(game)
-
-    this._canvas.getContext('2d').drawImage(game.canvas, 0, 0, game.width,
-      game.height, 0, 0, window.innerWidth, window.innerHeight)
   }
 
   /** @return {void} */
@@ -66,10 +57,5 @@ export default class GameState extends Phaser.State {
       Math.ceil(this._scene.height()))
     this.game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
       this._scene.height())
-
-    this._canvas.width = window.innerWidth
-    this._canvas.height = window.innerHeight
-
-    Phaser.Canvas.setSmoothingEnabled(this._canvas.getContext('2d'), false)
   }
 }
