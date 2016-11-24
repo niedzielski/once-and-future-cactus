@@ -32,9 +32,6 @@ export default class GameState extends Phaser.State {
     super.create(game)
     this._scene.create(game)
     this.resize()
-
-    // eslint-disable-next-line no-console
-    console.log(`scene: ${this._scene.width()}x${this._scene.height()}`)
   }
 
   /** @param {!Phaser.Game} game
@@ -49,20 +46,28 @@ export default class GameState extends Phaser.State {
   render(game) {
     super.render(game)
     this._scene.render(game)
-    const millisPerSec = 1000
-    const millisPerFrame = 17
-    if (game.time.now % millisPerSec < millisPerFrame) {
-      console.log(game.time.fps) // eslint-disable-line no-console
+
+    const minFps = 50, millisPerSec = 1000, millisPerFrame = 17
+    if (game.time.fps < minFps
+    && game.time.now % millisPerSec < millisPerFrame) {
+      console.log(`${game.time.fps} fps`) // eslint-disable-line no-console
     }
   }
 
   /** @return {void} */
   resize() {
     const scale = window.innerHeight / this._scene.height()
-    console.log(`resize scale=${scale}`) // eslint-disable-line no-console
+    const nativeWidth = Math.ceil(window.innerWidth / scale)
+    const nativeHeight = Math.ceil(this._scene.height())
 
-    this.game.scale.setGameSize(Math.ceil(window.innerWidth / scale),
-      Math.ceil(this._scene.height()))
+    // eslint-disable-next-line no-console
+    console.log(`resize scale=${scale} `
+      + `native=${nativeWidth}x${nativeHeight} `
+      + `scene=${this._scene.width()}x${this._scene.height()} `
+      + `window=${window.innerWidth}x${window.innerHeight} `
+      + `ratio=${window.innerWidth / window.innerHeight}`)
+
+    this.game.scale.setGameSize(nativeWidth, nativeHeight)
     this.game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
       this._scene.height())
     this._scene.resize(this.game)
