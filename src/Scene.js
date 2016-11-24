@@ -88,6 +88,11 @@ export default class Scene {
     }
   }
 
+  /** @return {void} */
+  resize() {
+    this._layers.forEach(layer => layer.resize(this.width(), this.height()))
+  }
+
   /** @param {!Phaser.Game} game
       @return {void} */
   render(game) {

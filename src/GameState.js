@@ -66,5 +66,6 @@ export default class GameState extends Phaser.State {
       Math.ceil(this._scene.height()))
     this.game.camera.bounds = new Phaser.Rectangle(0, 0, this._scene.width(),
       this._scene.height())
+    this._scene.resize()
   }
 }
