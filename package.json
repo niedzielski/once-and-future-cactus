@@ -6,7 +6,8 @@
     "game",
     "pixel",
     "8-bit",
-    "phaser"
+    "phaser",
+    "responsive"
   ],
   "homepage": "https://github.com/rndmem/once-and-future-cactus",
   "repository": "github:rndmem/once-and-future-cactus",
