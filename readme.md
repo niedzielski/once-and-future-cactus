@@ -1,3 +1,6 @@
+<img style='image-rendering: pixelated; max-width: 600px;'
+  src='readme.png' alt='Screenshot'>
+
 # Once and Future Cactus
 
 ## License (GPLv3 and CC BY-SA 4.0)
