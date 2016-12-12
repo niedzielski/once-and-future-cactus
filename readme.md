@@ -2,6 +2,7 @@
   src='readme.png' alt='Screenshot'>
 
 # Once and Future Cactus
+Follow development at [TIGForums](https://forums.tigsource.com/index.php?topic=58848).
 
 ## License (GPLv3 and CC BY-SA 4.0)
 © 2016 Stephen Niedzielski
