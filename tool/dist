@@ -7,8 +7,8 @@ dist_dir=dist
 phaser_file=node_modules/phaser/build/phaser.min.js
 
 mkdir -p "$dist_dir"
-cp -af "$src_dir/index-prod.htm" "$dist_dir/index.htm"
-cp -af \
+cp -aLf "$src_dir/index-prod.htm" "$dist_dir/index.htm"
+cp -aLf \
   "$phaser_file" \
   "$asset_dir" \
   "$dist_dir"
