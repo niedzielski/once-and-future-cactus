@@ -42,13 +42,16 @@
     "jq-cli-wrapper": "0.4.0",
     "jspm": "0.17.0-beta.32",
     "live-server": "1.1.0",
+    "mem-font": "3.0.0",
     "npm-check-updates": "2.8.6",
     "pre-commit": "1.1.3"
   },
   "jspm": {
-    "dependencies": {},
+    "dependencies": {
+      "webfontloader": "npm:webfontloader@1.6.26"
+    },
     "devDependencies": {
-      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.17"
+      "plugin-babel": "npm:systemjs-plugin-babel@0.0.17"
     }
   },
   "precommit.silent": true,

@@ -1,11 +1,13 @@
 /// <reference path="Phaser.d.ts" />
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
-/** @private {!Scene} _scene */
+/** @private {!Scene} _scene
+ *  @private {?Phaser.Text} _fpsText */
 export default class GameState extends Phaser.State {
   /** @param {!Phaser.Game} game
       @param {!Scene} scene */
   constructor(game, scene) {
+    console.log('GameState: constructor') // eslint-disable-line no-console
     super(game)
     this._scene = scene
   }
@@ -14,12 +16,13 @@ export default class GameState extends Phaser.State {
       @return {void} */
   preload(game) {
     super.preload(game)
+    console.log('GameState: preload') // eslint-disable-line no-console
     game.time.advancedTiming = true
 
     game.renderer.renderSession.roundPixels = true
     game.camera.roundPx = false // this should be true but creates jitter
 
-    Phaser.Canvas.setImageRenderingCrisp(game.canvas, false)
+    Phaser.Canvas.setImageRenderingCrisp(game.canvas)
 
     window.addEventListener('resize', () => this.resize())
 
@@ -30,8 +33,25 @@ export default class GameState extends Phaser.State {
       @return {void} */
   create(game) {
     super.create(game)
+    console.log('GameState: create') // eslint-disable-line no-console
     this._scene.create(game)
     this.resize()
+  }
+
+  fontsLoaded() {
+    console.log('GameState: fontsLoaded') // eslint-disable-line no-console
+
+    this._fpsText = this.game.add.text(1, 1)
+    this._fpsText.font = 'mem mono'
+    this._fpsText.fontSize = 4
+    this._fpsText.smoothed = false
+    this._fpsText.autoRound = true
+    this._fpsText.fixedToCamera = true
+  }
+
+  fontsUnloaded() {
+    console.log('GameState: fontsUnloaded') // eslint-disable-line no-console
+    this._fpsText = null
   }
 
   /** @param {!Phaser.Game} game
@@ -47,10 +67,9 @@ export default class GameState extends Phaser.State {
     super.render(game)
     this._scene.render(game)
 
-    const minFps = 50, millisPerSec = 1000, millisPerFrame = 17
-    if (game.time.fps < minFps
-    && game.time.now % millisPerSec < millisPerFrame) {
-      console.log(`${game.time.fps} fps`) // eslint-disable-line no-console
+    if (this._fpsText) {
+      const fps = String(game.time.fps)
+      this._fpsText.text = fps.length < 2 ? `0${fps}` : fps
     }
   }
 
@@ -61,7 +80,7 @@ export default class GameState extends Phaser.State {
     const nativeHeight = Math.ceil(this._scene.height())
 
     // eslint-disable-next-line no-console
-    console.log(`resize scale=${scale} `
+    console.log(`GameState: resize scale=${scale} `
       + `native=${nativeWidth}x${nativeHeight} `
       + `scene=${this._scene.width()}x${this._scene.height()} `
       + `window=${window.innerWidth}x${window.innerHeight} `
