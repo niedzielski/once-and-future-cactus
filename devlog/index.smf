@@ -35,3 +35,19 @@ I wrote the first unique bits by hand and, with a few lines of Bash to generate 
 The kerning support in the .fnt file is really primitive. Where needed, kerning specialization between every permutation of character pairs will need to be identified and specified. The font is even less readable without kerning so I'm pretty sure I need it but I don't know what this should look like when I'm showing a countdown sequence, for example. I don't want the numbers bouncing back and forth because of different kerning. Maybe just for numbers it's always the same?
 
 No real commits today. I gotta get all of this from complete hackjob to partial hackjob. In particular, I really hope that if I need kerning I can encode all this information into the FontForge file and still keep that process from GIMP source to FontForge automated. The only other noteworthy mention is that I've started versioning the devlog itself in the repo since I'm taking the trouble to write it and it's all about the game.
+
+Dec 18th 2016: I've been busy lately but have somehow done a ton of work too. mem font is pretty much done!
+
+According to [url=https://en.wikipedia.org/wiki/Kerning#Kerning_values]Wikipedia[/url], monospaced fonts do not use kerning. It seems legit. Here's a close up of a screenshot I took in Sublime Text showing different characters all occupying the same widths:
+
+[img]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/devlog/2016-12-18-monospaced-kerning.png[/img]
+
+So I decided to split the font into monospaced and proportional fonts! There will be many tweaks to the proportional font's kerning and probably some of the shared glyphs of both but it's very functional for what I want.
+
+With so low a resolution, text of any length takes up way more room than I had hoped. I did mock out some screenshots previously but I was still thinking optimistically that I would be able to keep the camera on the character tightly. Since I'm planning on the player uncovering many short passages, I'll need the room for text either via a dedicated inventory and reading screen with high resolution, doubling the pixels drawn for everything but text, or increasing the resolution everywhere.
+
+Here's a shot of the new monospaced font for a FPS counter and some demo text in the prop font at an increased resolution:
+
+[img width=600]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/devlog/2016-12-18-prop-font-test.png[/img]
+
+I think I'll next start trying to better integrate the Tiled map editor's output functionality with the game. I also want to apply some of the build and packaging learnings from the mem font into the game.
