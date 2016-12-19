@@ -43,6 +43,9 @@ export default class GameState extends Phaser.State {
     this._fpsText = game.add.bitmapText(1, 1, 'mem mono', '0', size)
     this._fpsText.fixedToCamera = true
     this.resize()
+
+    const x = 20
+    game.add.bitmapText(x, 1, 'mem', 'Once & Future Cactus', size)
   }
 
   /** @param {!Phaser.Game} game
