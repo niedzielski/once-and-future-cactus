@@ -47,7 +47,7 @@ export default class Scene {
     // for (const key of Object.keys(this._map.objects)) {
     //   console.log(`key=${key}`)
     // }
-    const tileIndex = 16
+    const tileIndex = 128
     this._map.createFromObjects('char', 'player', 'tileset', tileIndex, true,
       false, chars)
 
