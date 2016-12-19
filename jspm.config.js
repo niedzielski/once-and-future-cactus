@@ -28,8 +28,6 @@ SystemJS.config({
     "npm:@*/*.json",
     "npm:*.json"
   ],
-  map: {
-    "webfontloader": "npm:webfontloader@1.6.26"
-  },
+  map: {},
   packages: {}
 });

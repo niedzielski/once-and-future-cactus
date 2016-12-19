@@ -2,7 +2,7 @@
 import Scene from './Scene' // eslint-disable-line no-unused-vars
 
 /** @private {!Scene} _scene
- *  @private {?Phaser.Text} _fpsText */
+ *  @private {?Phaser.BitmapText} _fpsText */
 export default class GameState extends Phaser.State {
   /** @param {!Phaser.Game} game
       @param {!Scene} scene */
@@ -21,6 +21,8 @@ export default class GameState extends Phaser.State {
 
     game.renderer.renderSession.roundPixels = true
     game.camera.roundPx = false // this should be true but creates jitter
+    game.load.bitmapFont('mem', '/asset/mem.png', '/asset/mem.fnt')
+    game.load.bitmapFont('mem mono', '/asset/mem.png', '/asset/mem-mono.fnt')
 
     Phaser.Canvas.setImageRenderingCrisp(game.canvas)
 
@@ -35,23 +37,10 @@ export default class GameState extends Phaser.State {
     super.create(game)
     console.log('GameState: create') // eslint-disable-line no-console
     this._scene.create(game)
-    this.resize()
-  }
-
-  fontsLoaded() {
-    console.log('GameState: fontsLoaded') // eslint-disable-line no-console
-
-    this._fpsText = this.game.add.text(1, 1)
-    this._fpsText.font = 'mem mono'
-    this._fpsText.fontSize = 4
-    this._fpsText.smoothed = false
-    this._fpsText.autoRound = true
+    const size = 4
+    this._fpsText = game.add.bitmapText(1, 1, 'mem mono', '0', size)
     this._fpsText.fixedToCamera = true
-  }
-
-  fontsUnloaded() {
-    console.log('GameState: fontsUnloaded') // eslint-disable-line no-console
-    this._fpsText = null
+    this.resize()
   }
 
   /** @param {!Phaser.Game} game
@@ -67,10 +56,8 @@ export default class GameState extends Phaser.State {
     super.render(game)
     this._scene.render(game)
 
-    if (this._fpsText) {
-      const fps = String(game.time.fps)
-      this._fpsText.text = fps.length < 2 ? `0${fps}` : fps
-    }
+    const fps = String(game.time.fps)
+    this._fpsText.text = fps.length < 2 ? `0${fps}` : fps
   }
 
   /** @return {void} */
