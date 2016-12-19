@@ -23,7 +23,7 @@ export default class Game extends Phaser.Game {
       fontactive: (family, fvd) => console.log(`${family} ${fvd} active`),
       // eslint-disable-next-line no-console
       fontinactive: (family, fvd) => console.log(`${family} ${fvd} inactive`),
-      custom: {families: ['mem mono'], urls: ['font.css']},
+      custom: {families: ['mem mono'], urls: ['/src/font.css']},
       active: () => this._gameState.fontsLoaded(),
       inactive: () => this._gameState.fontsUnloaded()
     })
