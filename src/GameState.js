@@ -17,14 +17,16 @@ export default class GameState extends Phaser.State {
   preload(game) {
     super.preload(game)
     console.log('GameState: preload') // eslint-disable-line no-console
+
+    // for fps counter
     game.time.advancedTiming = true
 
     game.renderer.renderSession.roundPixels = true
     game.camera.roundPx = false // this should be true but creates jitter
+    Phaser.Canvas.setImageRenderingCrisp(game.canvas)
+
     game.load.bitmapFont('mem', '/asset/mem.png', '/asset/mem.fnt')
     game.load.bitmapFont('mem mono', '/asset/mem.png', '/asset/mem-mono.fnt')
-
-    Phaser.Canvas.setImageRenderingCrisp(game.canvas)
 
     window.addEventListener('resize', () => this.resize())
 
