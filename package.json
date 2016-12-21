@@ -42,7 +42,7 @@
     "jq-cli-wrapper": "0.4.0",
     "jspm": "0.17.0-beta.32",
     "live-server": "1.1.0",
-    "mem-font": "3.0.0",
+    "mem-font": "3.0.1",
     "npm-check-updates": "2.8.6",
     "pre-commit": "1.1.3"
   },
