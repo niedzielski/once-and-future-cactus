@@ -16,7 +16,7 @@
   "main": "src",
   "scripts": {
     "watch": "live-server",
-    "build": "bin/dist",
+    "build": "bin/make",
     "test": "npm run -s lint",
     "rebuild": "npm run -s clean && npm run -s build",
     "clean": "rm -rf build",
