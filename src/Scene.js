@@ -27,8 +27,9 @@ export default class Scene {
     game.stage.backgroundColor = '#f4f4ed'
 
     const tileSize = 16
-    game.load.tilemap('lvl', '/asset/lvl.json', null, Phaser.Tilemap.TILED_JSON)
-    game.load.spritesheet('tileset', '/asset/tileset.png', tileSize, tileSize)
+    game.load.tilemap('lvl', '/static/lvl.json', null,
+      Phaser.Tilemap.TILED_JSON)
+    game.load.spritesheet('tileset', '/static/tileset.png', tileSize, tileSize)
   }
 
   /** @param {!Phaser.Game} game

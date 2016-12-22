@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-src_dir=src
-asset_dir=asset
-dist_dir=build
-phaser_file=node_modules/phaser/build/phaser.min.js
+# root
 
-mkdir -p "$dist_dir"
-cp -aLf "$src_dir/index-prod.htm" "$dist_dir/index.htm"
-cp -aLf \
-  "$phaser_file" \
-  "$asset_dir" \
-  "$dist_dir"
-jspm build --minify "$src_dir/index" "$dist_dir/index.js"
+src_dir=src
+static_dir=static
+build_dir=build
+
+mkdir -p "$build_dir"
+cp -af "$src_dir/index-prod.htm" "$build_dir/index.htm"
+cp -aLf "$static_dir" "$build_dir"
+jspm build --minify "$src_dir/index" "$build_dir/index.js"

@@ -2,3 +2,4 @@
 /jspm.config.js
 /dist/
 /build/
+/static/phaser.min.js

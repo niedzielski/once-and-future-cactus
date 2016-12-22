@@ -25,8 +25,8 @@ export default class GameState extends Phaser.State {
     game.camera.roundPx = false // this should be true but creates jitter
     Phaser.Canvas.setImageRenderingCrisp(game.canvas)
 
-    game.load.bitmapFont('mem', '/asset/mem.png', '/asset/mem.fnt')
-    game.load.bitmapFont('mem mono', '/asset/mem.png', '/asset/mem-mono.fnt')
+    game.load.bitmapFont('mem', '/static/mem.png', '/static/mem.fnt')
+    game.load.bitmapFont('mem mono', '/static/mem.png', '/static/mem-mono.fnt')
 
     window.addEventListener('resize', () => this.resize())
 
