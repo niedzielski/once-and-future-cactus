@@ -18,7 +18,7 @@
     "test": "npm run -s eslint",
     "watch": "live-server",
     "eslint": "rndlint .",
-    "dist": "tool/dist",
+    "dist": "bin/dist",
     "rel": "rm -rf dist && npm run -s dist && mv dist \"rel/$(jq -r .version package.json)+$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)\"",
     "update": "ncu -atu && jspm update",
     "postinstall": "jspm i",
