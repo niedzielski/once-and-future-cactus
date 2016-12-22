@@ -3,7 +3,7 @@ set -euo pipefail
 
 src_dir=src
 asset_dir=asset
-dist_dir=dist
+dist_dir=build
 phaser_file=node_modules/phaser/build/phaser.min.js
 
 mkdir -p "$dist_dir"
