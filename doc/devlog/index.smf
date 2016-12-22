@@ -30,7 +30,7 @@ Dec 13th 2016: I forgot in my last post that I actually already have bitmaps dra
 
 I wrote the first unique bits by hand and, with a few lines of Bash to generate the character map, was able to hack together an output for testing quickly. I got the casing wrong on one attribute but after I spotted that it pretty much worked! It's super crisp. However, I've no idea about how fixed width and kerning should play together. That part still looks like rubbish. I've manually added kerning tweaks to a couple characters in the .fnt file and here's what that looks like:
 
-[img width=600]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/devlog/2016-12-13-font-test.png[/img]
+[img width=600]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/doc/devlog/2016-12-13-font-test.png[/img]
 
 The kerning support in the .fnt file is really primitive. Where needed, kerning specialization between every permutation of character pairs will need to be identified and specified. The font is even less readable without kerning so I'm pretty sure I need it but I don't know what this should look like when I'm showing a countdown sequence, for example. I don't want the numbers bouncing back and forth because of different kerning. Maybe just for numbers it's always the same?
 
@@ -40,7 +40,7 @@ Dec 18th 2016: I've been busy lately but have somehow done a ton of work too. me
 
 According to [url=https://en.wikipedia.org/wiki/Kerning#Kerning_values]Wikipedia[/url], monospaced fonts do not use kerning. It seems legit. Here's a close up of a screenshot I took in Sublime Text showing different characters all occupying the same widths:
 
-[img]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/devlog/2016-12-18-monospaced-kerning.png[/img]
+[img]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/doc/devlog/2016-12-18-monospaced-kerning.png[/img]
 
 So I decided to split the font into monospaced and proportional fonts! There will be many tweaks to the proportional font's kerning and probably some of the shared glyphs of both but it's very functional for what I want.
 
@@ -48,6 +48,6 @@ With so low a resolution, text of any length takes up way more room than I had h
 
 Here's a shot of the new monospaced font for a FPS counter and some demo text in the prop font at an increased resolution:
 
-[img width=600]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/devlog/2016-12-18-prop-font-test.png[/img]
+[img width=600]https://raw.githubusercontent.com/rndmem/once-and-future-cactus/master/doc/devlog/2016-12-18-prop-font-test.png[/img]
 
 I think I'll next start trying to better integrate the Tiled map editor's output functionality with the game. I also want to apply some of the build and packaging learnings from the mem font into the game.

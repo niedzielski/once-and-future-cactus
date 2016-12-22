@@ -1,13 +1,14 @@
-![Screenshot](readme.png)
+![Screenshot](doc/screenshot.png)
 
 # Once and Future Cactus
-Follow development at [TIGForums](https://forums.tigsource.com/index.php?topic=58848).
+Follow development at
+[TIGForums](https://forums.tigsource.com/index.php?topic=58848)
 
 ## License (GPLv3 and CC BY-SA 4.0)
 © 2016 Stephen Niedzielski
 
-All code is available under GPLv3. All other content is available under
-CC BY-SA 4.0.
+All code is licensed under GPLv3. All other content is licensed under CC
+BY-SA 4.0
 
 ### GPLv3
 This program is free software: you can redistribute it and/or modify it
