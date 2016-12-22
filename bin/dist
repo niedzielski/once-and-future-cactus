@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# root
-
-src_dir=src
-static_dir=static
-build_dir=build
+root_dir="$(realpath "$(dirname "$0")/..")"
+src_dir="src" # hack: absolute src path seems to break jspm
+static_dir="$root_dir/static"
+build_dir="$root_dir/build"
 
 mkdir -p "$build_dir"
 cp -af "$src_dir/index-prod.htm" "$build_dir/index.htm"
