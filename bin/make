@@ -3,7 +3,7 @@ set -euo pipefail
 
 root_dir="$(realpath "$(dirname "$0")/..")"
 src_dir="src" # hack: absolute src path seems to break jspm
-static_dir="$root_dir/static"
+static_dir="$src_dir/static"
 build_dir="$root_dir/build"
 
 mkdir -p "$build_dir"
