@@ -25,7 +25,7 @@ $(index_js): $(src_js) | $(build_dir)/
 $(build_dir)/index.htm: $(src_dir)/index-prod.htm | $(build_dir)/
 	cp -af '$<' '$@'
 
-$(build_dir)/static/%: $(static_dir)/% | $(build_dir)/$(static_dir)
+$(build_dir)/static/%: $(static_dir)/% | $(build_dir)/static
 	cp -aLf '$<' '$@'
 
-$(build_dir)/ $(build_dir)/$(static_dir):; mkdir -p '$@'
+$(build_dir)/ $(build_dir)/static:; mkdir -p '$@'
