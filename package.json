@@ -15,16 +15,17 @@
   "bugs": "https://github.com/rndmem/once-and-future-cactus/issues",
   "main": "src",
   "scripts": {
-    "test": "npm run -s eslint",
     "watch": "live-server",
-    "eslint": "rndlint .",
-    "dist": "bin/dist",
-    "rel": "rm -rf dist && npm run -s dist && mv dist \"rel/$(jq -r .version package.json)+$(date +%Y%m%d%H%M%S)-$(git rev-parse --short HEAD)\"",
+    "build": "bin/dist",
+    "test": "npm run -s lint",
+    "rebuild": "npm run -s clean && npm run -s build",
+    "clean": "rm -rf dist",
+    "lint": "rndlint .",
     "update": "ncu -atu && jspm update",
     "postinstall": "jspm i",
-    "preversion": "[ -z \"$(git status --porcelain)\" ] && npm run -s test",
+    "preversion": "[ -z \"$(git status --porcelain)\" ] && npm run -s rebuild && npm run -s test && git add dist",
     "postversion": "git push origin master --follow-tags && npm publish",
-    "clean": "rm -rf node_modules jspm_packages .eslintcache"
+    "clobber": "npm run -s clean && rm -rf node_modules jspm_packages .eslintcache"
   },
   "engines": {
     "node": "7.1.0"
@@ -39,7 +40,6 @@
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-node": "3.0.4",
     "eslint-plugin-promise": "3.4.0",
-    "jq-cli-wrapper": "0.4.0",
     "jspm": "0.17.0-beta.32",
     "live-server": "1.1.0",
     "mem-font": "3.0.1",

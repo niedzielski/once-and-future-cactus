@@ -1,6 +1,5 @@
 {
   "files.exclude": {
-    ".eslintcache": true,
-    "rel": true
+    ".eslintcache": true
   }
 }
