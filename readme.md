@@ -1,5 +1,4 @@
-<img style='image-rendering: pixelated; max-width: 600px;'
-  src='readme.png' alt='Screenshot'>
+![Screenshot](readme.png)
 
 # Once and Future Cactus
 Follow development at [TIGForums](https://forums.tigsource.com/index.php?topic=58848).
