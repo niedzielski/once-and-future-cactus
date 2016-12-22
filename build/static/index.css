@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background: #f4f4ed;
 }
 canvas {
   width: 100% !important;
