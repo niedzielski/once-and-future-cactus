@@ -1,12 +1,31 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/usr/bin/env sh
+exec make -f- --warn-undefined-variables -j8 \
+	root_dir="$(realpath "$(dirname "$0")/.." --relative-to=.)" "$@" << 'eof'
 
-root_dir="$(realpath "$(dirname "$0")/..")"
-src_dir="src" # hack: absolute src path seems to break jspm
-static_dir="$src_dir/static"
-build_dir="$root_dir/build"
+src_dir := $(root_dir)/src
+src_js := $(wildcard $(src_dir)/*)
 
-mkdir -p "$build_dir"
-cp -af "$src_dir/index-prod.htm" "$build_dir/index.htm"
-cp -aLf "$static_dir" "$build_dir"
-jspm build --minify "$src_dir/index" "$build_dir/index.js"
+static_dir := $(src_dir)/static
+static_files := $(wildcard $(static_dir)/*)
+build_dir := $(root_dir)/build
+
+index_js := $(build_dir)/index.js
+index_htm := $(build_dir)/index.htm
+
+.PHONY: build
+build: $(index_js) $(index_htm) $(static_files:$(src_dir)/%=$(build_dir)/%)
+
+.PHONY: clean
+clean:; rm -rf '$(build_dir)'
+
+# hack: absolute src path seems to break jspm
+$(index_js): $(src_js) | $(build_dir)/
+	jspm build --minify src/index.js '$(build_dir)/index.js'
+
+$(build_dir)/index.htm: $(src_dir)/index-prod.htm | $(build_dir)/
+	cp -af '$<' '$@'
+
+$(build_dir)/static/%: $(static_dir)/% | $(build_dir)/$(static_dir)
+	cp -aLf '$<' '$@'
+
+$(build_dir)/ $(build_dir)/$(static_dir):; mkdir -p '$@'
