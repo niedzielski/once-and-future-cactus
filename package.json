@@ -23,7 +23,7 @@
     "lint": "rndlint .",
     "update": "ncu -atu && jspm update",
     "postinstall": "jspm i",
-    "preversion": "[ -z \"$(git status --porcelain)\" ] && npm run -s rebuild && npm run -s test && git add build",
+    "preversion": "[ -z \"$(git status --porcelain)\" ] && npm run -s rebuild && npm -s test && git add build",
     "postversion": "git push origin master --follow-tags && npm publish",
     "clobber": "npm run -s clean && rm -rf node_modules jspm_packages .eslintcache"
   },
