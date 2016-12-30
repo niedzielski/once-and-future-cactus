@@ -45,7 +45,8 @@ export default class GameState extends Phaser.State {
     this.resize()
 
     const x = 20
-    game.add.bitmapText(x, 1, 'mem', 'Once & Future Cactus', size)
+    game.add.bitmapText(x, 1, 'mem',
+      'Once & Future Cactus\nA Summary of You ~', size)
   }
 
   /** @param {!Phaser.Game} game
@@ -61,15 +62,15 @@ export default class GameState extends Phaser.State {
     super.render(game)
     this._scene.render(game)
 
-    const fps = String(game.time.fps)
+    const fps = `${game.time.fps}`
     this._fpsText.text = fps.length < 2 ? `0${fps}` : fps
   }
 
   /** @return {void} */
   resize() {
     const scale = window.innerHeight / this._scene.height()
-    const nativeWidth = Math.ceil(window.innerWidth / scale)
-    const nativeHeight = Math.ceil(this._scene.height())
+    const nativeWidth = Math.floor(window.innerWidth / scale)
+    const nativeHeight = Math.floor(this._scene.height())
 
     // eslint-disable-next-line no-console
     console.log(`GameState: resize scale=${scale} `
