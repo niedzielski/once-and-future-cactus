@@ -33,7 +33,7 @@ export default class Scene {
 
   /** @param {!Phaser.Game} game
       @return {void} */
-  preload(game) { // eslint-disable-line class-methods-use-this
+  preload(game) {
     game.load.tilemap(TILEMAP_KEY, TILEMAP_FILENAME, null,
       Phaser.Tilemap.TILED_JSON)
     game.load.spritesheet(TILESET16_KEY, TILESET16_FILENAME, TILESET16_SIZE,
@@ -92,7 +92,7 @@ export default class Scene {
 
   /** @param {!Phaser.Game} _game
       @return {void} */
-  render(_game) { // eslint-disable-line class-methods-use-this
+  render(_game) { // eslint-disable-line no-empty-function
   }
 
   /** @param {!Phaser.Game} game
@@ -107,13 +107,13 @@ export default class Scene {
       @return {void} */
   _loadCollisionBodies(game) {
     for (const child of game.world.children) {
-      if (child.name !== 'player') continue // eslint-disable-line no-continue
+      if (child.name !== 'player') continue
       this._player = child
 
       // todo: how to go from name to gid?
       const playerGid = 51
       const collisions = this._findCollisionData(game, playerGid)
-      if (!collisions) continue // eslint-disable-line no-continue
+      if (!collisions) continue
 
       game.physics.p2.enable(child)
       child.body.clearShapes() // clear initial tile collision shape
@@ -132,7 +132,6 @@ export default class Scene {
   /** @param {!Phaser.Point} origin
     * @param {!Array.<Object>} polyline
     * @return {!Array.<number>} */
-  // eslint-disable-next-line class-methods-use-this
   _polylineToArray(origin, polyline) {
     const arr = []
     for (let p = 0; p < polyline.length; p++) {
@@ -145,7 +144,7 @@ export default class Scene {
   /** @param {!Phaser.Game} game
       @param {!number} gid
       @return {?Object} */
-  _findCollisionData(game, gid) { // eslint-disable-line class-methods-use-this
+  _findCollisionData(game, gid) {
     const lvl = game.cache.getTilemapData(TILEMAP_KEY)
     for (const tileset of lvl.data.tilesets) {
       for (const tileGid of Object.keys(tileset.tiles)) {
