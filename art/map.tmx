@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="10" tilewidth="16" tileheight="16" nextobjectid="52">
+ <tileset firstgid="1" name="tileset16" tilewidth="16" tileheight="16" tilecount="16384" columns="128">
+  <image source="../src/static/tileset.png" width="2048" height="2048"/>
+ </tileset>
+ <layer name="bg0" width="16" height="10">
+  <data encoding="base64">
+   AwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAAMBAAADAQAAAwEAAA==
+  </data>
+ </layer>
+ <objectgroup name="scene">
+  <object id="2" gid="84" x="112" y="16" width="16" height="16"/>
+  <object id="3" gid="212" x="112" y="32" width="16" height="16"/>
+  <object id="4" gid="213" x="128" y="32" width="16" height="16"/>
+  <object id="5" gid="85" x="128" y="16" width="16" height="16"/>
+  <object id="17" gid="1108" x="112" y="48" width="16" height="16"/>
+  <object id="18" gid="852" x="192" y="144" width="16" height="16"/>
+  <object id="19" gid="853" x="208" y="144" width="16" height="16"/>
+  <object id="20" gid="854" x="224" y="144" width="16" height="16"/>
+  <object id="21" gid="724" x="192" y="128" width="16" height="16"/>
+  <object id="22" gid="596" x="192" y="112" width="16" height="16"/>
+  <object id="23" gid="468" x="192" y="96" width="16" height="16"/>
+  <object id="24" gid="340" x="192" y="80" width="16" height="16"/>
+  <object id="25" gid="597" x="208" y="112" width="16" height="16"/>
+  <object id="26" gid="469" x="208" y="96" width="16" height="16"/>
+  <object id="28" gid="726" x="224" y="128" width="16" height="16"/>
+  <object id="29" gid="725" x="208" y="128" width="16" height="16"/>
+  <object id="32" gid="980" x="192" y="160" width="16" height="16"/>
+  <object id="33" gid="981" x="208" y="160" width="16" height="16"/>
+  <object id="34" gid="1109" x="176" y="128" width="16" height="16"/>
+  <object id="36" gid="1236" x="16" y="144" width="16" height="16"/>
+  <object id="37" gid="1237" x="32" y="144" width="16" height="16"/>
+  <object id="38" gid="1235" x="0" y="144" width="16" height="16"/>
+  <object id="39" gid="1363" x="0" y="160" width="16" height="16"/>
+  <object id="40" gid="1364" x="16" y="160" width="16" height="16"/>
+  <object id="41" gid="1365" x="32" y="160" width="16" height="16"/>
+  <object id="42" gid="1491" x="64" y="80" width="16" height="16"/>
+  <object id="43" gid="1492" x="80" y="80" width="16" height="16"/>
+  <object id="44" gid="1493" x="96" y="80" width="16" height="16"/>
+  <object id="45" gid="1619" x="64" y="96" width="16" height="16"/>
+  <object id="46" gid="1620" x="80" y="96" width="16" height="16"/>
+  <object id="47" gid="1621" x="96" y="96" width="16" height="16"/>
+  <object id="50" gid="1622" x="112" y="96" width="16" height="16"/>
+  <object id="51" gid="52" x="96" y="48" width="16" height="16"/>
+ </objectgroup>
+</map>
