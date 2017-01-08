@@ -5,7 +5,7 @@ Follow development at
 [TIGForums](https://forums.tigsource.com/index.php?topic=58848)
 
 ## License (GPLv3 and CC BY-SA 4.0)
-© 2016 Stephen Niedzielski
+© 2017 Stephen Niedzielski
 
 All code is licensed under GPLv3. All other content is licensed under CC
 BY-SA 4.0
